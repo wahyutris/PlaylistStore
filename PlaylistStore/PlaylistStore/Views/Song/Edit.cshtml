@@ -1,0 +1,45 @@
+﻿@model PlaylistStore.Models.SongModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.DisplayNameFor(model => model.Title)
+    <div>
+        @Html.TextBoxFor(model => model.Title)
+    </div>
+
+    @Html.DisplayNameFor(model => model.Singer)
+    <div>
+        @Html.TextBoxFor(model => model.Singer)
+    </div>
+    
+    @Html.DisplayNameFor(model => model.Writer)
+    <div>
+        @Html.TextBoxFor(model => model.Writer)
+    </div>
+
+    @Html.DisplayNameFor(model => model.Year)
+    <div>
+        @Html.TextBoxFor(model => model.Year)
+    </div>
+
+    @Html.DisplayNameFor(model => model.GenreID)
+    <div>
+        @Html.DropDownListFor(model => model.GenreID, Model.Genres)
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>        
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
